@@ -1,5 +1,5 @@
 
-API_BASE_URL = 'http://cubstart.aniruddh.co';
+API_BASE_URL = 'http://localhost:5050';
 
 function sendGet(route, cb) {
 	var url = API_BASE_URL + route;
