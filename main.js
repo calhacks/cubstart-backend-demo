@@ -25,7 +25,7 @@ function sendPost(route, d, cb) {
 }
 
 $(document).ajaxError(function(event, jqxhr, settings, error) {
-	$('#responses-content').append('Error status ' + jqxhr.status);
+	$('#responses-content').append('Error status ' + jqxhr.status + ' <br/>');
 });
 
 $(function() {
