@@ -1,9 +1,7 @@
 
-API_BASE_URL = 'http://localhost:5005';
-
 function sendGet(route, cb) {
 	var url = API_BASE_URL + route;
-	$('#requests-content').append('GET ' + route);
+	$('#requests-content').append('GET ' + url);
 	$('#requests-content').append('<br/>');
 	$.get(url, function(data) {
 		$('#responses-content').append(JSON.stringify(data) + ' (status 200)');
@@ -14,7 +12,7 @@ function sendGet(route, cb) {
 
 function sendPost(route, d, cb) {
 	var url = API_BASE_URL + route;
-	$('#requests-content').append('POST ' + route + ' ' + JSON.stringify(d));
+	$('#requests-content').append('POST ' + url + ' ' + JSON.stringify(d));
 	$('#requests-content').append('<br/>');
 	$.post(url, d, function(data) {
 		console.log(data)
