@@ -22,28 +22,30 @@ function sendPost(route, d, cb) {
 	});
 }
 
+function refreshCounter() {
+	sendGet('/counter', function(data) {
+		$('#number').text(data);
+	});
+}
+
 $(document).ajaxError(function(event, jqxhr, settings, error) {
 	$('#responses-content').append('Error status ' + jqxhr.status + ' <br/>');
 });
 
 $(function() {
-	sendGet('/counter', function(data) {
-		$('#number').text(data);
-	});
+	refreshCounter();
 
 	$('#add').click(function() {
 		sendPost('/add', {}, function() {
-			sendGet('/counter', function(data) {
-				$('#number').text(data);
-			});
+			refreshCounter();
 		});
 	});
 
 	$('#subtract').click(function() {
 		sendPost('/subtract', {}, function() {
-			sendGet('/counter', function(data) {
-				$('#number').text(data);
-			});
+			refreshCounter();
 		});
 	});
+
+	setInterval(refreshCounter, 1000);
 });
