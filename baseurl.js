@@ -1,2 +1,2 @@
 
-var API_BASE_URL = 'http://cubstart.aniruddh.co';
+var API_BASE_URL = 'http://localhost:5005';
